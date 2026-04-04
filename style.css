@@ -1,0 +1,52 @@
+body{
+font-family: Arial;
+background: linear-gradient(#ffb347,#ffcc33);
+margin:0;
+}
+
+.container{
+padding:30px;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+}
+
+.nav a{
+margin:10px;
+}
+
+.product-box{
+display:flex;
+background:white;
+border-radius:20px;
+padding:20px;
+margin-top:30px;
+}
+
+.left, .center, .right{
+flex:1;
+text-align:center;
+}
+
+.main-img{
+width:250px;
+}
+
+.thumbs img{
+width:60px;
+margin:5px;
+}
+
+.cart-btn{
+background:black;
+color:white;
+padding:10px 20px;
+border:none;
+margin-top:20px;
+}
+
+button.active{
+background:orange;
+}
