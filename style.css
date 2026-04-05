@@ -1,105 +1,46 @@
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff9a44, #ff6a00);
+const products = [
+  { id: 1, name: "Product 1", price: 100 },
+  { id: 2, name: "Product 2", price: 200 },
+  { id: 3, name: "Product 3", price: 300 }
+];
+
+let cart = [];
+
+function displayProducts() {
+  const container = document.getElementById("products");
+  container.innerHTML = "";
+  products.forEach(p => {
+    container.innerHTML += `
+      <div class="card">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      </div>
+    `;
+  });
 }
 
-/* CONTAINER */
-.container {
-    width: 90%;
-    margin: auto;
-    margin-top: 40px;
+function addToCart(id) {
+  const item = products.find(p => p.id === id);
+  cart.push(item);
+  updateCart();
 }
 
-/* HEADER */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+function updateCart() {
+  document.getElementById("cart-count").innerText = cart.length;
+  const list = document.getElementById("cart-items");
+  list.innerHTML = "";
+  cart.forEach(item => {
+    list.innerHTML += `<li>${item.name} - ₹${item.price}</li>`;
+  });
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+function viewCart() {
+  document.getElementById("cart").classList.remove("hidden");
 }
 
-.nav a {
-    margin: 10px;
-    color: white;
-    text-decoration: none;
+function closeCart() {
+  document.getElementById("cart").classList.add("hidden");
 }
 
-/* PRODUCT CARD */
-.product {
-    margin-top: 40px;
-    background: #fdf3e7;
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    gap: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-/* SECTIONS */
-.left, .center, .right {
-    flex: 1;
-}
-
-/* IMAGE */
-.main-img {
-    width: 250px;
-    display: block;
-    margin: auto;
-}
-
-/* THUMBS */
-.thumbs img {
-    width: 60px;
-    margin: 5px;
-    border-radius: 10px;
-}
-
-/* PRICE */
-.center h2 {
-    text-align: center;
-    color: #ff6a00;
-}
-
-/* RIGHT */
-.rating {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* SIZE BUTTONS */
-.sizes button {
-    margin: 5px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background: #eee;
-    cursor: pointer;
-}
-
-.sizes .active {
-    background: #ff6a00;
-    color: white;
-}
-
-/* CART BUTTON */
-.cart {
-    margin-top: 20px;
-    padding: 12px;
-    width: 100%;
-    background: black;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.cart:hover {
-    background: #333;
-}
+displayProducts();
