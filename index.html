@@ -1,65 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ShopHub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<header>
+  <h1>My E-Commerce</h1>
+  <button onclick="viewCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+</header>
 
-<!-- HEADER -->
-<div class="header">
-<div class="logo">🟡 shophub</div>
+<div id="products" class="grid"></div>
 
-<div class="nav">
-<a>Home</a>
-<a class="active">Shop</a>
-<a>Blog</a>
-<a>Contact</a>
-</div>
-</div>
-
-<!-- PRODUCT SECTION -->
-<div class="product">
-
-<!-- LEFT -->
-<div class="left">
-<h1>Nike Air Max 270</h1>
-<p>Best sneakers of the year</p>
-
-<div class="thumbs">
-<img src="https://via.placeholder.com/60">
-<img src="https://via.placeholder.com/60">
-<img src="https://via.placeholder.com/60">
-</div>
+<div id="cart" class="hidden">
+  <h2>Your Cart</h2>
+  <ul id="cart-items"></ul>
+  <button onclick="closeCart()">Close</button>
 </div>
 
-<!-- CENTER -->
-<div class="center">
-<img src="https://via.placeholder.com/300" class="main-img">
-<h2>$290.00</h2>
-</div>
-
-<!-- RIGHT -->
-<div class="right">
-
-<div class="rating">⭐⭐⭐⭐☆ 4.5</div>
-
-<div class="sizes">
-<button>37</button>
-<button class="active">38</button>
-<button>39</button>
-</div>
-
-<button class="cart">Add to cart</button>
-
-</div>
-
-</div>
-
-</div>
-
+<script src="script.js"></script>
 </body>
 </html>
